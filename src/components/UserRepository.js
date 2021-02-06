@@ -17,9 +17,11 @@ function UserRepository(props) {
     </Container>
   );
 }
-
+UserRepository.defaultProps = {
+  username: "",
+};
 UserRepository.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
   toggleUsername: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
