@@ -7,18 +7,18 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import GitUserRepositories from "./dataStore/DataStore";
+import GitUserRepositoriesStore from "./dataStore/DataStore";
 import UserRepositoryConnector from "./components/UserRepositoryConnector";
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
   render() {
     return (
-      <Provider store={GitUserRepositories}>
+      <Provider store={GitUserRepositoriesStore}>
         <Router>
           <Switch>
-            <Route path="/shop" component={UserRepositoryConnector} />
-            <Redirect to="/shop" />
+            <Route path="/git" component={UserRepositoryConnector} />
+            <Redirect to="/git" />
           </Switch>
         </Router>
       </Provider>

@@ -1,6 +1,11 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import RepositoryReducer from "./RepositoryReducer";
+import CommonReducer from "./CommonReducer";
+import asyncActions from "./AsyncMiddleware";
 
-const GitUserRepositories = createStore(RepositoryReducer);
+const GitUserRepositoriesStore = createStore(
+  CommonReducer(RepositoryReducer),
+  applyMiddleware(asyncActions)
+);
 
-export default GitUserRepositories;
+export default GitUserRepositoriesStore;

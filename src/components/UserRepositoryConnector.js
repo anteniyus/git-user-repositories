@@ -30,7 +30,7 @@ const UserRepositoryConnector = connect(
               <UserRepository
                 username={username}
                 toggleUsername={toggleUsername}
-                data={data}
+                data={data || []}
               />
             )}
           />
