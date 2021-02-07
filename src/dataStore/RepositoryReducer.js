@@ -7,6 +7,11 @@ const RepositoryReducer = (storeData, action) => {
         ...storeData,
         data: action.payload.data,
       };
+    case ActionTypes.UPDATE_USERNAME:
+      return {
+        ...storeData,
+        username: action.username,
+      };
     default:
       return storeData || {};
   }

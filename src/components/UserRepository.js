@@ -7,26 +7,29 @@ import UserForm from "./UserForm";
 import RepositoryList from "./RepositoryList";
 
 function UserRepository(props) {
-  const { username, toggleUsername, data } = props;
+  const { toggleUsername, data } = props;
+
   return (
     <Container maxWidth="lg">
       <Grid container spacing={2}>
-        <UserForm username={username} toggleUsername={toggleUsername} />
-        <RepositoryList data={data} />
+        <UserForm toggleUsername={toggleUsername} />
+        <RepositoryList data={data || []} />
       </Grid>
     </Container>
   );
 }
-UserRepository.defaultProps = {
-  username: "",
-};
+
 UserRepository.propTypes = {
-  username: PropTypes.string,
   toggleUsername: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      value: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      name: PropTypes.string.isRequired,
+      starsCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+      forksCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+      htmlUrl: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

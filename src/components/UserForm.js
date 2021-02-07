@@ -12,8 +12,17 @@ import CustomButton from "./CustomButton";
 import { rose } from "../constants/ColorPalette";
 
 export default class UserForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+    };
+  }
+
   render() {
-    const { username, toggleUsername } = this.props;
+    const { toggleUsername } = this.props;
+    const { username } = this.state;
+
     return (
       <>
         <Grid item xs={12}>
@@ -21,18 +30,17 @@ export default class UserForm extends Component {
             label="Enter username"
             value={username}
             onChange={(event) => {
-              toggleUsername(event.target.value);
+              this.setState({ username: event.target.value });
             }}
           />
           <CustomButton
             title="Search"
-            onClick={this.handleSearchClick}
-            iconComponent={<SearchIcon />}
+            onClick={() => toggleUsername(username)}
+            IconComponent={<SearchIcon />}
           />
           <CustomButton
             title="Reset"
-            onClick={this.handleRefreshClick}
-            iconComponent={<RefreshIcon />}
+            IconComponent={<RefreshIcon />}
             bgColor={rose}
           />
         </Grid>
@@ -42,6 +50,5 @@ export default class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-  username: PropTypes.string.isRequired,
   toggleUsername: PropTypes.func.isRequired,
 };

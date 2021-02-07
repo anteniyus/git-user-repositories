@@ -20,7 +20,7 @@ const UserRepositoryConnector = connect(
   class extends Component {
     render() {
       // eslint-disable-next-line react/prop-types,no-shadow
-      const { username, toggleUsername, data } = this.props;
+      const { toggleUsername, data } = this.props;
 
       return (
         <Switch>
@@ -28,7 +28,6 @@ const UserRepositoryConnector = connect(
             path="/git/repositories/:username"
             render={() => (
               <UserRepository
-                username={username}
                 toggleUsername={toggleUsername}
                 data={data || []}
               />
