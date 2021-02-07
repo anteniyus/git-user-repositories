@@ -19,7 +19,6 @@ export default class RepositoryList extends Component {
             onRowClick={this.openRepository}
             data={data}
             columns={[
-              { title: "Id", key: "id" },
               { title: "Name", key: "name" },
               { title: "Stars Count", key: "starsCount" },
               { title: "Forks Count", key: "forksCount" },
