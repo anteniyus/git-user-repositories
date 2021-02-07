@@ -19,8 +19,15 @@ export default class UserForm extends Component {
     };
   }
 
+  clearList = () => {
+    const { clearList } = this.props;
+    this.setState({ username: "" }, () => {
+      clearList();
+    });
+  };
+
   render() {
-    const { toggleUsername, clearList } = this.props;
+    const { toggleUsername } = this.props;
     const { username } = this.state;
 
     return (
@@ -40,7 +47,7 @@ export default class UserForm extends Component {
           />
           <CustomButton
             title="Reset"
-            onClick={() => clearList()}
+            onClick={this.clearList}
             IconComponent={<RefreshIcon />}
             bgColor={rose}
           />
