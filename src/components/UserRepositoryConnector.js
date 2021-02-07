@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import toggleUsername from "../dataStore/ActionCreators";
+import { toggleUsername, clearList } from "../dataStore/ActionCreators";
 import UserRepository from "./UserRepository";
 
 const mapStateToProps = (dataStore) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (dataStore) => ({
 
 const mapDispatchToProps = {
   toggleUsername,
+  clearList,
 };
 
 const UserRepositoryConnector = connect(
@@ -20,7 +21,7 @@ const UserRepositoryConnector = connect(
   class extends Component {
     render() {
       // eslint-disable-next-line react/prop-types,no-shadow
-      const { toggleUsername, data } = this.props;
+      const { toggleUsername, clearList, data } = this.props;
 
       return (
         <Switch>
@@ -29,6 +30,7 @@ const UserRepositoryConnector = connect(
             render={() => (
               <UserRepository
                 toggleUsername={toggleUsername}
+                clearList={clearList}
                 data={data || []}
               />
             )}

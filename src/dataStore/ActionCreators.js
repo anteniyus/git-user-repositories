@@ -16,7 +16,7 @@ const prepareTableData = (reposData) =>
     };
   });
 
-const toggleUsername = (username, params) => ({
+export const toggleUsername = (username, params) => ({
   type: ActionTypes.TOGGLE_USERNAME,
   payload: api.GetData(username, params).then((response) => ({
     data: prepareTableData(response.data),
@@ -24,35 +24,6 @@ const toggleUsername = (username, params) => ({
   })),
 });
 
-export default toggleUsername;
-
-// [
-//   {
-//     id: "id01",
-//     name: "name02",
-//     starsCount: "starsCount03",
-//     forksCount: "forksCount04",
-//     htmlUrl: "htmlUrl05",
-//   },
-//   {
-//     id: "id11",
-//     name: "name02",
-//     starsCount: "starsCount13",
-//     forksCount: "forksCount14",
-//     htmlUrl: "htmlUrl15",
-//   },
-//   {
-//     id: "id21",
-//     name: "name22",
-//     starsCount: "starsCount23",
-//     forksCount: "forksCount24",
-//     htmlUrl: "htmlUrl25",
-//   },
-//   {
-//     id: "id31",
-//     name: "name32",
-//     starsCount: "starsCount33",
-//     forksCount: "forksCount34",
-//     htmlUrl: "htmlUrl35",
-//   },
-// ]
+export const clearList = () => ({
+  type: ActionTypes.CLEAR_List,
+});

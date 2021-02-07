@@ -7,12 +7,12 @@ import UserForm from "./UserForm";
 import RepositoryList from "./RepositoryList";
 
 function UserRepository(props) {
-  const { toggleUsername, data } = props;
+  const { toggleUsername, clearList, data } = props;
 
   return (
     <Container maxWidth="lg">
       <Grid container spacing={2}>
-        <UserForm toggleUsername={toggleUsername} />
+        <UserForm toggleUsername={toggleUsername} clearList={clearList} />
         <RepositoryList data={data || []} />
       </Grid>
     </Container>
@@ -21,6 +21,7 @@ function UserRepository(props) {
 
 UserRepository.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
+  clearList: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,

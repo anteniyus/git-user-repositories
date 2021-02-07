@@ -20,7 +20,7 @@ export default class UserForm extends Component {
   }
 
   render() {
-    const { toggleUsername } = this.props;
+    const { toggleUsername, clearList } = this.props;
     const { username } = this.state;
 
     return (
@@ -40,6 +40,7 @@ export default class UserForm extends Component {
           />
           <CustomButton
             title="Reset"
+            onClick={() => clearList()}
             IconComponent={<RefreshIcon />}
             bgColor={rose}
           />
@@ -51,4 +52,5 @@ export default class UserForm extends Component {
 
 UserForm.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
+  clearList: PropTypes.func.isRequired,
 };
