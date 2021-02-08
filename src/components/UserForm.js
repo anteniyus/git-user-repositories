@@ -19,15 +19,30 @@ export default class UserForm extends Component {
     };
   }
 
+  componentDidMount() {
+    const { username, toggleUsername, navigateToUserRoute } = this.props;
+    if (username)
+      this.setState({ username }, () => {
+        navigateToUserRoute(username);
+        toggleUsername(username);
+      });
+  }
+
   clearList = () => {
-    const { clearList } = this.props;
+    const { clearList, navigateToUserRoute } = this.props;
     this.setState({ username: "" }, () => {
+      navigateToUserRoute("");
       clearList();
     });
   };
 
+  loadUserRepositories = (username) => {
+    const { navigateToUserRoute, toggleUsername } = this.props;
+    navigateToUserRoute(username);
+    toggleUsername(username);
+  };
+
   render() {
-    const { toggleUsername } = this.props;
     const { username } = this.state;
 
     return (
@@ -42,7 +57,7 @@ export default class UserForm extends Component {
           />
           <CustomButton
             title="Search"
-            onClick={() => toggleUsername(username)}
+            onClick={() => this.loadUserRepositories(username)}
             IconComponent={<SearchIcon />}
           />
           <CustomButton
@@ -56,8 +71,13 @@ export default class UserForm extends Component {
     );
   }
 }
+UserForm.defaultProps = {
+  username: "",
+};
 
 UserForm.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
+  navigateToUserRoute: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
+  username: PropTypes.string,
 };

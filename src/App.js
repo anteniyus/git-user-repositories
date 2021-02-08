@@ -18,7 +18,7 @@ export default class App extends Component {
         <Router>
           <Switch>
             <Route path="/git" component={UserRepositoryConnector} />
-            <Redirect to="/git" />
+            <Redirect to="/git/repositories" />
           </Switch>
         </Router>
       </Provider>

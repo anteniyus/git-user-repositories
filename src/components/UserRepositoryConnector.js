@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleUsername, clearList } from "../dataStore/ActionCreators";
 import UserRepository from "./UserRepository";
@@ -13,34 +13,47 @@ const mapDispatchToProps = {
   clearList,
 };
 
-const UserRepositoryConnector = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(
-  // eslint-disable-next-line react/prefer-stateless-function
-  class extends Component {
-    render() {
-      // eslint-disable-next-line react/prop-types,no-shadow
-      const { toggleUsername, clearList, data } = this.props;
+const mergeProps = (dataStore, actionCreators, router) => ({
+  ...dataStore,
+  ...router,
+  ...actionCreators,
+  navigateToUserRoute: (username) =>
+    router.history.push(`/git/repositories/${username}`),
+});
 
-      return (
-        <Switch>
-          <Route
-            path="/git/repositories/:username"
-            render={() => (
-              <UserRepository
-                toggleUsername={toggleUsername}
-                clearList={clearList}
-                data={data || []}
-              />
-            )}
-          />
+const UserRepositoryConnector = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+  )(
+    // eslint-disable-next-line react/prefer-stateless-function
+    class extends Component {
+      render() {
+        // eslint-disable-next-line react/prop-types,no-shadow
+        const { toggleUsername, clearList, data } = this.props;
+        // eslint-disable-next-line react/prop-types
+        const { navigateToUserRoute } = this.props;
 
-          <Redirect to="/git/repositories" />
-        </Switch>
-      );
+        return (
+          <Switch>
+            <Route
+              path="/git/repositories/:username?"
+              render={(routerProps) => (
+                <UserRepository
+                  toggleUsername={toggleUsername}
+                  clearList={clearList}
+                  navigateToUserRoute={navigateToUserRoute}
+                  data={data || []}
+                  username={routerProps.match.params.username}
+                />
+              )}
+            />
+          </Switch>
+        );
+      }
     }
-  }
+  )
 );
 
 export default UserRepositoryConnector;
