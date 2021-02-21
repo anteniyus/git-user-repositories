@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Grid from "@material-ui/core/Grid";
-import Table from "./CustomTable";
+import Table from "../../components/CustomTable";
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class RepositoryList extends Component {
+export default class UserRepositoryList extends Component {
   openRepository = (item) => {
     window.open(item.htmlUrl, "_blank");
   };
@@ -30,7 +30,7 @@ export default class RepositoryList extends Component {
   }
 }
 
-RepositoryList.propTypes = {
+UserRepositoryList.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,

@@ -7,7 +7,7 @@ import RefreshIcon from "@material-ui/icons/Refresh";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
-import CustomButton from "../CustomButton";
+import CustomButton from "../../components/CustomButton";
 
 import { rose } from "../../constants/ColorPalette";
 

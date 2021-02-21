@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import UserForm from "./userForm/UserForm";
-import RepositoryList from "./RepositoryList";
+import UserForm from "../user/UserForm";
+import UserRepositoryList from "../user/UserRepositoryList";
 
-function UserRepository(props) {
+function MainScreen(props) {
   const {
     toggleUsername,
     clearList,
@@ -24,17 +24,17 @@ function UserRepository(props) {
           navigateToUserRoute={navigateToUserRoute}
           username={username}
         />
-        <RepositoryList data={data || []} />
+        <UserRepositoryList data={data || []} />
       </Grid>
     </Container>
   );
 }
 
-UserRepository.defaultProps = {
+MainScreen.defaultProps = {
   username: "",
 };
 
-UserRepository.propTypes = {
+MainScreen.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
@@ -52,4 +52,4 @@ UserRepository.propTypes = {
   username: PropTypes.string,
 };
 
-export default UserRepository;
+export default MainScreen;

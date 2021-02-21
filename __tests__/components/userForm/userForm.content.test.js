@@ -7,7 +7,7 @@ import Adapter from "enzyme-adapter-react-16";
 
 import TextField from "@material-ui/core/TextField";
 
-import UserForm from "../../../src/components/userForm/UserForm";
+import UserForm from "../../../src/screens/user/UserForm";
 import CustomButton from "../../../src/components/CustomButton";
 
 Enzyme.configure({ adapter: new Adapter() });

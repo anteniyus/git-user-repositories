@@ -2,7 +2,7 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import Enzyme, { shallow } from "enzyme";
 
-import UserForm from "../../../src/components/userForm/UserForm";
+import UserForm from "../../../src/screens/user/UserForm";
 
 Enzyme.configure({ adapter: new Adapter() });
 
