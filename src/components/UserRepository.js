@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import UserForm from "./UserForm";
+import UserForm from "./userForm/UserForm";
 import RepositoryList from "./RepositoryList";
 
 function UserRepository(props) {
