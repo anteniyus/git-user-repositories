@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Table from "../../components/CustomTable";
 
-// eslint-disable-next-line react/prefer-stateless-function
 export default class UserRepositoryList extends Component {
   openRepository = (item) => {
     window.open(item.htmlUrl, "_blank");

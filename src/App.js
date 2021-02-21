@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import { Provider } from "react-redux";
 import {
@@ -8,20 +8,17 @@ import {
   Redirect,
 } from "react-router-dom";
 import GitUserRepositoriesStore from "./dataStore/DataStore";
-import UserRepositoryConnector from "./components/UserRepositoryConnector";
+import UserRepositoryConnector from "./dataStore/UserRepositoryConnector";
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class App extends Component {
-  render() {
-    return (
-      <Provider store={GitUserRepositoriesStore}>
-        <Router>
-          <Switch>
-            <Route path="/git" component={UserRepositoryConnector} />
-            <Redirect to="/git/repositories" />
-          </Switch>
-        </Router>
-      </Provider>
-    );
-  }
-}
+const App = () => (
+  <Provider store={GitUserRepositoriesStore}>
+    <Router>
+      <Switch>
+        <Route path="/git" component={UserRepositoryConnector} />
+        <Redirect to="/git/repositories" />
+      </Switch>
+    </Router>
+  </Provider>
+);
+
+export default App;

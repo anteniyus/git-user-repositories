@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { toggleUsername, clearList } from "../dataStore/ActionCreators";
+import { toggleUsername, clearList } from "./ActionCreators";
 import MainScreen from "../screens/mainScreen/MainScreen";
 
 const mapStateToProps = (dataStore) => ({

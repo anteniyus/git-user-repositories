@@ -22,6 +22,7 @@ const TableComponent = (props) => {
             ))}
           </TableRow>
         </TableHead>
+
         <TableBody>
           {data.map((item) => (
             <TableRow key={item.id} onClick={() => onRowClick(item)} hover>

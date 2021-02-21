@@ -5,14 +5,19 @@ const api = new RestApi();
 
 const prepareTableData = (reposData) =>
   reposData.map((repo) => {
-    // eslint-disable-next-line camelcase
-    const { id, name, stargazers_count, forks_count, html_url } = repo;
+    const {
+      id,
+      name,
+      stargazers_count: starsCount,
+      forks_count: forksCount,
+      html_url: htmlUrl,
+    } = repo;
     return {
       id,
       name,
-      starsCount: stargazers_count,
-      forksCount: forks_count,
-      htmlUrl: html_url,
+      starsCount,
+      forksCount,
+      htmlUrl,
     };
   });
 
