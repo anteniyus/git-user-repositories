@@ -56,7 +56,7 @@ For deployment, you can use nginx as web server.
 
 Now assuming our application build folder is the following path:
 
-_D:/projects/the-simplified-git/build_
+_D:/projects/git-user-repositories/build_
 
 - In the conf file, change server part like below:
 
@@ -67,7 +67,7 @@ server {
     server_name  localhost;
 
     location / {
-        root   "D:/projects/the-simplified-git/build";    #the application build folder
+        root   "D:/projects/git-user-repositories/build";    #the application build folder
         try_files  $uri /index.html;
     }
 }
