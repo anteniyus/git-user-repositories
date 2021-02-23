@@ -14,7 +14,7 @@ Also, you can go to the repository page of each item in the list by clicking on 
 corresponding row in the table,
 and there is a reset button to clear the list, and the input field.
 
-Also, it is available to pass the username using query parameters like below:
+Also, it is available to pass the username like below:
 
 > /sampleUsername
 
