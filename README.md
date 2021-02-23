@@ -8,9 +8,12 @@
 
 This project uses **GitHub REST API** for fetching user repositories.
 
-It has a simple form for entering the username, and a list to show the user's repositories.
-Also, you can go to the repository of each item in the list by clicking on the row, and there is an
-reset button to clear the list, and the input field.
+It has a simple form for entering the username, and a list to show the 
+user's repositories.
+Also, you can go to the repository page of each item in the list by clicking on the 
+corresponding row in the table,
+and there is a reset button to clear the list, and the input field.
+
 Also, it is available to pass the username using query parameters like below:
 
 > /sampleUsername
