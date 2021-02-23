@@ -8,13 +8,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import GitUserRepositoriesStore from "./dataStore/DataStore";
-import UserRepositoryConnector from "./dataStore/UserRepositoryConnector";
+import MainScreen from "./screens/mainScreen/MainScreen";
 
 const App = () => (
   <Provider store={GitUserRepositoriesStore}>
     <Router>
       <Switch>
-        <Route path="/git" component={UserRepositoryConnector} />
+        <Route path="/git" component={MainScreen} />
         <Redirect to="/git/repositories" />
       </Switch>
     </Router>
