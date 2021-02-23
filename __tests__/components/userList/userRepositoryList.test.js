@@ -50,7 +50,7 @@ describe("<UserRepositoryList />", () => {
   });
 
   describe("render()", () => {
-    test("renders the basic component with empty data", () => {
+    test("renders the basic component", () => {
       const wrapper = mount(<UserRepositoryList data={[]} />);
 
       const table = wrapper.find(TableComponent);
