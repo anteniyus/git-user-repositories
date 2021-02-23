@@ -15,6 +15,12 @@ describe("<UserRepositoryList />", () => {
     jest.spyOn(console, "warn");
   });
 
+  afterEach(() => {
+    /* eslint-disable no-console,jest/no-standalone-expect */
+    expect(console.error).not.toBeCalled();
+    expect(console.warn).not.toBeCalled();
+  });
+
   describe("props", () => {
     test("check props requirements", () => {
       const data = [
@@ -40,9 +46,6 @@ describe("<UserRepositoryList />", () => {
       expect(wrapper.instance().props.data[0].starsCount).not.toBe(undefined);
       expect(wrapper.instance().props.data[0].forksCount).not.toBe(undefined);
       expect(wrapper.instance().props.data[0].htmlUrl).not.toBe(undefined);
-
-      /* eslint-disable no-console,jest/no-standalone-expect */
-      expect(console.error).not.toBeCalled();
     });
   });
 
