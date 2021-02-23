@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import UserForm from "../user/UserForm";
 import UserRepositoryList from "../user/UserRepositoryList";
 
-function MainScreen(props) {
+function Home(props) {
   const {
     toggleUsername,
     clearList,
@@ -30,11 +30,11 @@ function MainScreen(props) {
   );
 }
 
-MainScreen.defaultProps = {
+Home.defaultProps = {
   username: "",
 };
 
-MainScreen.propTypes = {
+Home.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
@@ -52,4 +52,4 @@ MainScreen.propTypes = {
   username: PropTypes.string,
 };
 
-export default MainScreen;
+export default Home;

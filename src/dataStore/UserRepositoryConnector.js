@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleUsername, clearList } from "./ActionCreators";
-import MainScreen from "../screens/mainScreen/MainScreen";
+import Home from "../screens/home/Home";
 
 const mapStateToProps = (dataStore) => ({
   ...dataStore,
@@ -40,7 +40,7 @@ const UserRepositoryConnector = withRouter(
             <Route
               path="/git/repositories/:username?"
               render={(routerProps) => (
-                <MainScreen
+                <Home
                   toggleUsername={toggleUsername}
                   clearList={clearList}
                   navigateToUserRoute={navigateToUserRoute}
