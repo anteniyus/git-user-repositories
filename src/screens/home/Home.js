@@ -38,17 +38,7 @@ Home.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      name: PropTypes.string.isRequired,
-      starsCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      forksCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      htmlUrl: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  data: PropTypes.instanceOf(Array).isRequired,
   username: PropTypes.string,
 };
 

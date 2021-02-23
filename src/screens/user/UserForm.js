@@ -71,6 +71,7 @@ export default class UserForm extends Component {
     );
   }
 }
+
 UserForm.defaultProps = {
   username: "",
 };
