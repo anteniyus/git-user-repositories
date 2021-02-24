@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import UserForm from "../user/UserForm";
 import UserRepositoryList from "../user/UserRepositoryList";
 
+import styles from "./Home.module.css";
+
 function Home(props) {
   const {
     toggleUsername,
@@ -18,7 +20,7 @@ function Home(props) {
   } = props;
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className={styles.container}>
       <Grid container spacing={2}>
         <UserForm
           toggleUsername={toggleUsername}
