@@ -24,8 +24,8 @@ function Home(props) {
           toggleUsername={toggleUsername}
           clearList={clearList}
           navigateToUserRoute={navigateToUserRoute}
-          username={username}
           setLoading={setLoading}
+          username={username}
         />
         <UserRepositoryList data={data} isLoading={isLoading} />
       </Grid>
