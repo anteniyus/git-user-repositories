@@ -25,7 +25,7 @@ const MainScreen = (props) => {
             clearList={clearList}
             navigateToUserRoute={navigateToUserRoute}
             setLoading={setLoading}
-            data={data || []}
+            data={data}
             isLoading={isLoading}
             username={routerProps.match.params.username}
           />
@@ -35,13 +35,18 @@ const MainScreen = (props) => {
   );
 };
 
+MainScreen.defaultProps = {
+  data: [],
+  isLoading: false,
+};
+
 MainScreen.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
   setLoading: PropTypes.func.isRequired,
-  data: PropTypes.instanceOf(Array).isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  data: PropTypes.instanceOf(Array),
+  isLoading: PropTypes.bool,
 };
 
 export default Connector(MainScreen);

@@ -12,7 +12,6 @@ const RepositoryReducer = (storeData, action) => {
       return {
         ...storeData,
         data: [],
-        username: "",
       };
     case ActionTypes.SET_LOADING:
       return {

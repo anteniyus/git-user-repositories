@@ -25,7 +25,6 @@ export const toggleUsername = (username, params) => ({
   type: ActionTypes.TOGGLE_USERNAME,
   payload: api.GetData(username, params).then((response) => ({
     data: prepareTableData(response.data),
-    username,
     isLoading: false,
   })),
 });
