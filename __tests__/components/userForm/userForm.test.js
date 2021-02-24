@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import TextField from "@material-ui/core/TextField";
@@ -10,6 +10,35 @@ import CustomButton from "../../../src/components/CustomButton";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<UserForm />", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "error");
+    jest.spyOn(console, "warn");
+  });
+
+  afterEach(() => {
+    /* eslint-disable no-console,jest/no-standalone-expect */
+    expect(console.error).not.toBeCalled();
+    expect(console.warn).not.toBeCalled();
+  });
+
+  describe("props", () => {
+    test("check props requirements", () => {
+      const wrapper = mount(
+        <UserForm
+          clearList={() => {}}
+          toggleUsername={() => {}}
+          navigateToUserRoute={() => {}}
+          setLoading={() => {}}
+        />
+      );
+
+      expect(wrapper.instance().props.clearList).not.toBe(undefined);
+      expect(wrapper.instance().props.toggleUsername).not.toBe(undefined);
+      expect(wrapper.instance().props.navigateToUserRoute).not.toBe(undefined);
+      expect(wrapper.instance().props.setLoading).not.toBe(undefined);
+    });
+  });
+
   describe("render()", () => {
     test("renders the component", () => {
       const wrapper = shallow(
@@ -17,6 +46,7 @@ describe("<UserForm />", () => {
           clearList={() => {}}
           toggleUsername={() => {}}
           navigateToUserRoute={() => {}}
+          setLoading={() => {}}
         />
       );
 
@@ -37,6 +67,7 @@ describe("<UserForm />", () => {
           clearList={() => {}}
           toggleUsername={() => {}}
           navigateToUserRoute={() => {}}
+          setLoading={() => {}}
         />
       );
 

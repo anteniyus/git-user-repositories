@@ -6,6 +6,7 @@ import { TableCell } from "@material-ui/core";
 
 import UserRepositoryList from "../../../src/screens/user/UserRepositoryList";
 import TableComponent from "../../../src/components/CustomTable";
+import CircularIndeterminate from "../../../src/components/CircularIndeterminate";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,7 +34,9 @@ describe("<UserRepositoryList />", () => {
         },
       ];
 
-      const wrapper = mount(<UserRepositoryList data={data} />);
+      const wrapper = mount(
+        <UserRepositoryList data={data} isLoading={false} />
+      );
 
       expect(wrapper.instance().props.data[0].id).toEqual(1);
       expect(wrapper.instance().props.data[0].name).toEqual("1");
@@ -51,13 +54,12 @@ describe("<UserRepositoryList />", () => {
 
   describe("render()", () => {
     test("renders the basic component", () => {
-      const wrapper = mount(<UserRepositoryList data={[]} />);
+      const wrapper = mount(<UserRepositoryList data={[]} isLoading={false} />);
 
       const table = wrapper.find(TableComponent);
+      expect(table).toHaveLength(1);
 
       const row = table.find("tr");
-
-      expect(table).toHaveLength(1);
       expect(row).toHaveLength(1);
 
       expect(wrapper.contains(<TableCell>Name</TableCell>)).toBe(true);
@@ -85,13 +87,66 @@ describe("<UserRepositoryList />", () => {
         },
       ];
 
-      const wrapper = mount(<UserRepositoryList data={data} />);
+      const wrapper = mount(
+        <UserRepositoryList data={data} isLoading={false} />
+      );
 
       const table = wrapper.find(TableComponent);
-
       const row = table.find("tr");
-
       expect(row).toHaveLength(3);
+    });
+  });
+
+  describe("Loading", () => {
+    test("check circular component", () => {
+      const data = [
+        {
+          id: 1,
+          name: "1",
+          starsCount: 1,
+          forksCount: 1,
+          htmlUrl: "sample.com/1",
+        },
+        {
+          id: 2,
+          name: "2",
+          starsCount: 2,
+          forksCount: 2,
+          htmlUrl: "sample.com/2",
+        },
+      ];
+
+      const wrapper = mount(<UserRepositoryList data={data} isLoading />);
+
+      const circular = wrapper.find(CircularIndeterminate);
+      expect(circular).toHaveLength(1);
+    });
+  });
+
+  describe("Loading", () => {
+    test("check no other component", () => {
+      const data = [
+        {
+          id: 1,
+          name: "1",
+          starsCount: 1,
+          forksCount: 1,
+          htmlUrl: "sample.com/1",
+        },
+        {
+          id: 2,
+          name: "2",
+          starsCount: 2,
+          forksCount: 2,
+          htmlUrl: "sample.com/2",
+        },
+      ];
+
+      const wrapper = mount(<UserRepositoryList data={data} isLoading />);
+
+      const table = wrapper.find(TableComponent);
+      const row = table.find("tr");
+      expect(row).toHaveLength(0);
     });
   });
 });
