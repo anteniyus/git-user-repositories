@@ -28,7 +28,7 @@ export default class UserForm extends Component {
       });
   }
 
-  clearList = () => {
+  clearUserRepositoriesList = () => {
     const { clearList, navigateToUserRoute } = this.props;
     this.setState({ username: "" }, () => {
       navigateToUserRoute("");
@@ -63,7 +63,7 @@ export default class UserForm extends Component {
           />
           <CustomButton
             title="Reset"
-            onClick={this.clearList}
+            onClick={this.clearUserRepositoriesList}
             IconComponent={<RefreshIcon />}
             bgColor={rose}
           />
