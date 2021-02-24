@@ -16,7 +16,7 @@ and there is a reset button to clear the list, and the input field.
 
 Also, it is available to pass the username like below:
 
-> /sampleUsername
+> host/git/repositories/sampleUsername
 
 The list will be automatically filled by repositories of the **_sampleUsername_**.
 
