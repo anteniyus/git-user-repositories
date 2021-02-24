@@ -23,10 +23,16 @@ const prepareTableData = (reposData) =>
 
 export const toggleUsername = (username, params) => ({
   type: ActionTypes.TOGGLE_USERNAME,
-  payload: api.GetData(username, params).then((response) => ({
-    data: prepareTableData(response.data),
-    isLoading: false,
-  })),
+  payload: api.GetData(username, params).then(
+    (response) => ({
+      data: prepareTableData(response.data),
+      isLoading: false,
+    }),
+    () => ({
+      data: [],
+      isLoading: false,
+    })
+  ),
 });
 
 export const clearList = () => ({
