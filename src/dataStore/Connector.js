@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { toggleUsername, clearList } from "./ActionCreators";
+import { toggleUsername, clearList, setLoading } from "./ActionCreators";
 
 const mapStateToProps = (dataStore) => ({
   ...dataStore,
@@ -8,6 +8,7 @@ const mapStateToProps = (dataStore) => ({
 const mapDispatchToProps = {
   toggleUsername,
   clearList,
+  setLoading,
 };
 
 const mergeProps = (dataStore, actionCreators, router) => ({

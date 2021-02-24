@@ -37,7 +37,8 @@ export default class UserForm extends Component {
   };
 
   loadUserRepositories = (username) => {
-    const { navigateToUserRoute, toggleUsername } = this.props;
+    const { navigateToUserRoute, toggleUsername, setLoading } = this.props;
+    setLoading(true);
     navigateToUserRoute(username);
     toggleUsername(username);
   };
@@ -80,5 +81,6 @@ UserForm.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
   username: PropTypes.string,
 };

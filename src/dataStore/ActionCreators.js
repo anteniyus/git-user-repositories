@@ -26,9 +26,17 @@ export const toggleUsername = (username, params) => ({
   payload: api.GetData(username, params).then((response) => ({
     data: prepareTableData(response.data),
     username,
+    isLoading: false,
   })),
 });
 
 export const clearList = () => ({
   type: ActionTypes.CLEAR_List,
+});
+
+export const setLoading = (isLoading) => ({
+  type: ActionTypes.SET_LOADING,
+  payload: {
+    isLoading,
+  },
 });

@@ -13,6 +13,8 @@ function Home(props) {
     data,
     username,
     navigateToUserRoute,
+    setLoading,
+    isLoading,
   } = props;
 
   return (
@@ -23,8 +25,9 @@ function Home(props) {
           clearList={clearList}
           navigateToUserRoute={navigateToUserRoute}
           username={username}
+          setLoading={setLoading}
         />
-        <UserRepositoryList data={data || []} />
+        <UserRepositoryList data={data || []} isLoading={isLoading} />
       </Grid>
     </Container>
   );
@@ -38,8 +41,10 @@ Home.propTypes = {
   toggleUsername: PropTypes.func.isRequired,
   clearList: PropTypes.func.isRequired,
   navigateToUserRoute: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
   data: PropTypes.instanceOf(Array).isRequired,
   username: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default Home;
